@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+<h2 class="h2-edit">キャラクター{% if product.id %}詳細編集{% else %}登録{% endif %}</h2> 
+  <!-- 商品フォーム --> 
+  <form method="POST" class="char-edit"> 
+    {% csrf_token %} 
+    {{ form.as_p }}
+    <!-- 保存ボタン --> 
+    <button type="submit" class="edit-button">保存</button>
+  </form>
+  <div class="div-button">
+    <a href="{% url 'search_view' %}">検索画面へ</a>
+  </div>
+{% endblock %}
