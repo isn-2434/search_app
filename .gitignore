@@ -1,0 +1,7 @@
+*.pyc
+*.pyo
+**/__pycache__/**
+**/migrations/**
+
+search_app/static/fonts/*.tmp
+search_app/static/image/*.tmp

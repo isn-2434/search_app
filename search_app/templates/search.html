@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+<form method="get"> 
+    <!-- 検索キーワード入力 --> 
+    {{ form.as_p }}
+    <div class="jouken">
+    <!-- 身長範囲の入力 -->
+    <div class="heiwei">
+        <div class="length"><label for="min_height">最低身長:</label><input type="number" name="min_height" min="0">cm</div>
+        <div class="length"><label for="max_height">最高身長:</label><input type="number" name="max_height" min="0">cm</div>
+    </div>
+    <!-- 体重範囲の入力 --> 
+    <div class="heiwei">
+        <div class="length"><label for="min_weight">最低体重:</label><input type="number" name="min_weight" min="0">kg</div> 
+        <div class="length"><label for="max_weight">最大体重:</label><input type="number" name="max_weight" min="0">kg</div>
+    </div>
+
+    <!-- ポジションの入力 -->
+    <div class="sel">
+    <label for="position">ポジション:</label>
+    <select name="position">
+        <option value="">--</option>
+        <option value="MB">MB</option>
+        <option value="WS">WS</option>
+        <option value="S">S</option>
+        <option value="L">L</option>
+        <option value="OP">OP</option>
+        <option value="OH">OH</option>
+        <option value="MG">MG</option>
+    </select>
+    </div>
+
+    <!-- 並び替えの選択 -->
+    <div class="sel">
+    <label for="sort">並び替え:</label> 
+    <select name="sort"> 
+        <option value="name">名前順</option> 
+        <option value="height_asc">身長が低い順</option>
+        <option value="height_desc">身長が高い順</option>
+        <option value="weight_asc">体重が軽い順</option>
+        <option value="weight_desc">体重が重い順</option>
+    </select>
+    </div>
+    </div>
+    <button type="submit">検索</button>
+</form>
+<ul class="member-list"> 
+    {% for product in page_obj %} 
+        <li class="member">
+            <img src="{{ product.image.url }}" height="125px" width="125px">
+            <div>
+                <h3 class="name">{{ product.name }}</h3>
+                <h5 class="team">{{ product.team }}</h5>
+                <div class="fig-posi">
+                    <h6 class="fig">{{ product.height }}cm - {{ product.weight}}kg</h6>
+                </div>
+                <h6 class="position">{{ product.position }}</h6>
+                <div class="div-right">
+                    <a href="{% url 'product_detail' product.pk %}">詳細へ</a>
+                <div>
+            </div>
+        </li> 
+        {% empty %} 
+            <li class="no-contain">No results found</li> 
+    {% endfor %} 
+</ul>
+<div class="pagination"> 
+    <span class="step-links"> 
+        {% if page_obj.has_previous %} 
+            <a href="?page=1">最初</a> 
+            <a href="?page={{ page_obj.previous_page_number }}">前へ</a> 
+        {% endif %} 
+            <span>ページ {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}</span> 
+        {% if page_obj.has_next %} 
+                <a href="?page={{ page_obj.next_page_number }}">次へ</a> 
+                <a href="?page={{ page_obj.paginator.num_pages }}">最後</a> 
+        {% endif %} 
+    </span>
+</div>
+<div class="div-button">
+    <a href="{% url 'product_list' %}">一覧画面へ</a>
+</div>
+{% endblock %}

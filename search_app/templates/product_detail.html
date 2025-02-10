@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+<body>
+  <div class="char">
+    <img src="{{ product.image.url }}" height="400px" width="400px">
+    <div>
+      <h3 class="char-name">名前:{{ product.name }}</h3>
+      <h5 class="char-div">所属:{{ product.team }}</h5>
+      <h5 class="char-div">身長:{{ product.height }}cm</h5>
+      <h5 class="char-div">体重:{{ product.weight }}kg</h5>
+      <h5 class="char-div">ポジション:{{ product.position }}</h5>
+      <h5 class="char-div">年齢:{{ product.age }}</h5>
+      <h5 class="char-div">キャラ紹介:</h5>
+      <h6>{{ product.description}}</h6>
+    </div>
+  </div>
+  <div class="div-button">
+    <a href="{% url 'search_view' %}">検索画面へ</a>
+  </div>
+</body>
+{% endblock %}

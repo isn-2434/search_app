@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+<body>
+  <ul class="member-list"> 
+    {% for product in products %} 
+      <li class="list-char">  
+        <h5>{{ product.name }}</h5>
+        <div class="list-button">
+          <!-- 編集ボタン --> 
+          <a href="{% url 'product_update' product.id %}" class="char-delete">編集</a> 
+          <!-- 削除ボタン --> 
+          <form action="{% url 'product_delete' product.id %}" method="POST" style="display:inline;" onsubmit="return confirm('本当に削除しますか？');"> 
+          {% csrf_token %} 
+          <button type="submit" class="char-delete">削除</button> 
+          </form>
+        </div>
+      </li>
+      {% empty %} 
+        <li class="no-contain">選手がいません</li>
+    {% endfor %}
+  </ul>
+  <div class="div-button">
+    <a href="{% url 'product_create' %}">キャラクター登録へ</a>
+  </div>
+  <div class="div-button">
+    <a href="{% url 'search_view' %}">検索画面へ</a>
+  </div>
+</body>
+{% endblock %}
