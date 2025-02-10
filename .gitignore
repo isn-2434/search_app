@@ -1,4 +1,6 @@
 *.pyc
+*.pyo
+**/__pycache__/**
 **/migrations/**
 
 search_app/static/fonts/*.tmp
