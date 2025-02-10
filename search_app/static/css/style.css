@@ -1,0 +1,210 @@
+@font-face {
+    font-family: "a"; /* 好きなフォント名を設定 */
+    src: url("../fonts/851Gkktt_005.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    font-family: "a", sans-serif;
+    background-image: url("../image/taiikukann.jpg"); /* 画像のパス */
+    background-size: cover; /* 画面全体にフィット */
+    background-position: center; /* 中央配置 */
+    background-repeat: no-repeat; /* 繰り返しなし */
+    height: 100vh; /* ビューポートの高さを100%にする */
+    margin: 0; /* 余白をなくす */
+    background-attachment: fixed;
+}
+header {
+    background: #ee7800;
+    margin-bottom: 50px;
+}
+.h-header {
+    font-size: 60px;
+    font-family: "a", sans-serif;
+    padding: 5px 10px;
+}
+form {
+    background-color: #ffffff;
+    width: 600px;
+    border-radius: 10px;
+    padding: 5px 15px;
+    margin: 0 auto;
+}
+p {
+    width: 500px;
+    margin: 0 auto;
+}
+.jouken {
+    width: 500px;
+    margin: 0 auto 30px;
+}
+.heiwei {
+    display: flex;
+}
+.sel {
+    margin-bottom: 10px;
+}
+input {
+    margin: 10px auto;
+    width:220px;
+    border: 1px solid black;
+    border-radius: 5%;
+}
+select {
+    border: 1px solid black;
+    border-radius: 5%;
+    appearance: auto;  /* デフォルトの矢印を表示 */
+    -webkit-appearance: auto; /* Safari対応 */
+    -moz-appearance: auto; /* Firefox対応 */
+}
+button {
+    display: block;
+    background-color: #dddddd;
+    padding: 10px;
+    margin: 0 auto;
+    border-radius: 30%;
+}
+ul {
+    list-style: none;
+}
+.member-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+.member {
+    border: 2px solid black;
+    background-color: #ffd6ad;
+    width: 350px;
+    padding: 5px;
+    display: flex;
+    justify-content: space-around;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+.name {
+    font-size: 40px;
+}
+.team {
+    font-size: 20px;
+}
+.fig-posi {
+    display: flex;
+    justify-content: space-between;
+}
+form {
+    margin-bottom: 30px;
+}
+.div-right {
+    text-align: right;
+}
+a {
+    color: blue;
+}
+.pagination {
+    margin: 30px;
+    text-align: right;
+    color: #ffffff;
+}
+.step-links a{
+    color: #ffffff;
+}
+.no-contain {
+    text-align: center;
+    color: black;
+    font-size: 50px;
+}
+.char {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    width: 800px;
+    margin: 0 auto 20px;
+    padding: 5px 30px;
+    border-radius: 40px;
+}
+.char img {
+    margin-right: 30px;
+}
+.char-name {
+    margin-bottom: 10px;
+    font-size: 40px;
+}
+.char-div {
+    margin-bottom: 5px;
+    font-size: 25px;
+}
+.div-button {
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #dcdcdc;
+    width: 100px;
+    text-align: center;
+    padding: 5px;
+    margin: 20px auto;
+}
+.list-char {
+    border-radius: 10px;
+    background-color: #ffffff;
+    width: 300px;
+    margin:0 auto 20px;
+    padding: 5px 10px;
+}
+.list-char h5 {
+    font-size: 30px;
+}
+.list-char .list-button {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+}
+.list-char .list-button form {
+    margin: 0;
+    width: 100px;
+    padding: 0;
+}
+.list-char .list-button button {
+    padding: 5px;
+    border-radius: 10px;
+}
+.list-char .list-button .char-delete {
+    color: black;
+    width: 100px;
+    background-color: #cdcdcd;
+    padding: 5px;
+    border-radius: 10px;
+}
+.h2-edit {
+    font-size: 40px;
+    background-color: #ffffff;
+    width: 450px;
+    padding: 5px 10px;
+    margin: 0 auto 10px;
+    text-align: center;
+    border-radius: 5px;
+}
+.char-edit {
+    font-size: 20px;
+    width: 600px;
+}
+textarea {
+    border: 1px solid black;
+    width: 400px;
+}
+.edit-button {
+    margin-top: 15px;
+}
+.footer-bef {
+    padding: 50px;
+}
+footer {
+    background: #ee7800;
+    padding: 5px;
+    text-align: center;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    margin-top: 100px;
+}
