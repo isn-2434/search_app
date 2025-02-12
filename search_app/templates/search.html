@@ -49,7 +49,7 @@
 <ul class="member-list"> 
     {% for product in page_obj %} 
         <li class="member">
-            <img src="{{ product.image.url }}" height="125px" width="125px">
+            <img src="{{ product.image.url }}" height="125px" width="125px" style="border-radius: 15px;">
             <div>
                 <h3 class="name">{{ product.name }}</h3>
                 <h5 class="team">{{ product.team }}</h5>
