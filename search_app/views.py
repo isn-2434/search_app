@@ -42,7 +42,15 @@ def product_delete(request, pk):
 
 def product_list(request): 
     products = Product.objects.all() 
-    return render(request, 'product_list.html', {'products': products})
+    
+    #16件ずつ
+    paginator = Paginator(products, 16)
+    # 現在のページ番号をGETリクエストから取得 
+    page_number = request.GET.get('page')
+    # 指定されたページの結果を取得 
+    page_obj = paginator.get_page(page_number)
+    
+    return render(request, 'product_list.html', {'products': products,'page_obj': page_obj})
 
 def search_view(request): 
     form = SearchForm(request.GET or None)  # フォームのインスタンス化 
@@ -87,7 +95,7 @@ def search_view(request):
         results = results.order_by('-weight')
         
     # 1ページに表示する件数を指定（例: 10件ずつ） 
-    paginator = Paginator(results, 10)
+    paginator = Paginator(results, 9)
     # 現在のページ番号をGETリクエストから取得 
     page_number = request.GET.get('page')
     # 指定されたページの結果を取得 
