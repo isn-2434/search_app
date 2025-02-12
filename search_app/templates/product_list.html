@@ -4,7 +4,7 @@
 {% block content %}
 <body>
   <ul class="member-list"> 
-    {% for product in products %} 
+    {% for product in page_obj %} 
       <li class="list-char">  
         <h5>{{ product.name }}</h5>
         <div class="list-button">
@@ -21,6 +21,19 @@
         <li class="no-contain">選手がいません</li>
     {% endfor %}
   </ul>
+  <div class="pagination"> 
+    <span class="step-links"> 
+        {% if page_obj.has_previous %} 
+            <a href="?page=1">最初</a> 
+            <a href="?page={{ page_obj.previous_page_number }}">前へ</a> 
+        {% endif %} 
+            <span>ページ {{ page_obj.number }} / {{ page_obj.paginator.num_pages }}</span> 
+        {% if page_obj.has_next %} 
+                <a href="?page={{ page_obj.next_page_number }}">次へ</a> 
+                <a href="?page={{ page_obj.paginator.num_pages }}">最後</a> 
+        {% endif %} 
+    </span>
+  </div>
   <div class="div-button">
     <a href="{% url 'product_create' %}">キャラクター登録へ</a>
   </div>
